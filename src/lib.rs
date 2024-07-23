@@ -6,10 +6,15 @@ pub use model::*;
 mod smoke_test {
     use crate::model;
 
-    static JSON: &str = include_str!("../test.json");
+    #[test]
+    fn tcp() {
+        static JSON: &str = include_str!("../tcp.json");
+        serde_json::from_str::<model::Iperf3>(&JSON).expect("failed to parse");
+    }
 
     #[test]
-    fn parse_json() {
-        serde_json::from_str::<model::Iperf3>(&JSON).expect("failed to parse");
+    fn udp() {
+        const JSON: &str = include_str!("../udp.json");
+        serde_json::from_str::<model::Iperf3>(JSON).expect("failed to deserialize");
     }
 }
