@@ -23,9 +23,6 @@ pub struct Start {
     pub cookie: String,
     pub tcp_mss_default: Option<u64>,
     pub target_bitrate: u64,
-    pub sock_bufsize: u64,
-    pub sndbuf_actual: u64,
-    pub rcvbuf_actual: u64,
     pub test_start: TestStart,
 }
 
